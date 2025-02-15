@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://ithelp.ithome.com.tw/mobile/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>高中7000單</title>
+
+<script language="javascript">
+   function jsfocus()
+   {
+	  document.form1.numberInput.focus() ;
+   }
+</script>
+    <script>
+        function playMP3() {
+            var number = document.getElementById("numberInput").value;
+            if (number) {
+                var audio = document.getElementById("audioPlayer");
+
+
+if (Number(number)<=8086){mm='7-6';}
+if (Number(number)<=6786){mm='7-5';}
+if (Number(number)<=5590){mm='7-4';}
+if (Number(number)<=4400){mm='7-3';}
+if (Number(number)<=3159){mm='7-2';}
+if (Number(number)<=1023){mm='7-1';}
+
+                audio.src =mm+'/'+number + '.mp3'; // 播放數字對應的 MP3 文件
+		numberInput.value="";
+                audio.play();
+		document.getElementById("numberInput").focus();
+		var label2=document.getElementById("n2"); 
+		label2.innerText=number; 	
+
+            } else {
+                alert('請輸入一個數字');
+            }
+        }
+    </script>
+</head>
+<body onload="jsfocus()" >
+    <center><h1>高中7000單字發音</h1>
+    <form onsubmit="event.preventDefault(); playMP3();"  name="form1">
+
+        <label for="numberInput"> <h1>編號：</label>
+        <input type="text" id="numberInput" name="numberInput" size="4" required></h1><label id="n2" size="5" name="n2" >~~</label>
+        <BR><h2><button type="submit">送出</button>
+    </form><BR>       
+	
+    <audio id="audioPlayer" controls>
+        您的瀏覽器不支持音頻元素。
+    </audio>
+</body>
+</html>
